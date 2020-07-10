@@ -490,3 +490,10 @@ if platform.python_implementation() == 'CPython':
         del temp
         del_count = len(gc.get_objects())
         assert start_count == del_count
+
+try:
+    import Cython
+    def test_cython():
+        assert SortedDict.__module__ == 'sortedcontainers._sorteddict'
+except ImportError:
+    pass
